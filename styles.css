@@ -34,7 +34,7 @@ body {
   height: 30px;
 }
 .status-action span {
-  color: #504217;
+  color: #c5b273;
 }
 
 .reset:hover {
@@ -80,12 +80,11 @@ body {
 }
 
 @media only screen and (max-width: 1024px) {
-  .game-grid {
+  .board {
     margin-top: 25px;
     grid-gap: 10px;
   }
-
-  .game-cell {
+  .board__tile {
     height: 150px;
     width: 150px;
   }

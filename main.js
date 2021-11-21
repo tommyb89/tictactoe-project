@@ -23,3 +23,18 @@ const handleWin = (letter) => {
     statusBox.innerHTML = `<span>${letterToSymbol(letter)} has won!</span>`;
   }
 };
+
+// Main function to check game status
+const checkGameStatus = () => {
+  // Select all board elements to compare them after
+
+  const topLeft = tiles[0].classList[1];
+  const topMiddle = tiles[1].classList[1];
+  const topRight = tiles[2].classList[1];
+  const middleLeft = tiles[3].classList[1];
+  const middleMiddle = tiles[4].classList[1];
+  const middleRight = tiles[5].classList[1];
+  const bottomLeft = tiles[6].classList[1];
+  const bottomMiddle = tiles[7].classList[1];
+  const bottomRight = tiles[8].classList[1];
+};

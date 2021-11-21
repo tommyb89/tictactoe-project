@@ -24,4 +24,18 @@ var handleWin = function handleWin(letter) {
   } else {
     statusBox.innerHTML = "<span>".concat(letterToSymbol(letter), " has won!</span>");
   }
+}; // Main function to check game status
+
+
+var checkGameStatus = function checkGameStatus() {
+  // Select all board elements to compare them after
+  var topLeft = tiles[0].classList[1];
+  var topMiddle = tiles[1].classList[1];
+  var topRight = tiles[2].classList[1];
+  var middleLeft = tiles[3].classList[1];
+  var middleMiddle = tiles[4].classList[1];
+  var middleRight = tiles[5].classList[1];
+  var bottomLeft = tiles[6].classList[1];
+  var bottomMiddle = tiles[7].classList[1];
+  var bottomRight = tiles[8].classList[1];
 };

@@ -34,7 +34,7 @@ body {
   height: 30px;
 
   & span {
-    color: #504217;
+    color: #c5b273;
   }
 }
 
@@ -82,14 +82,14 @@ body {
 }
 
 @media only screen and (max-width: 1024px) {
-  .game-grid {
+  .board {
     margin-top: 25px;
     grid-gap: 10px;
-  }
 
-  .game-cell {
-    height: 150px;
-    width: 150px;
+    &__tile {
+      height: 150px;
+      width: 150px;
+    }
   }
 
   .x::after {
