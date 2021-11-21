@@ -37,8 +37,7 @@ var checkGameStatus = function checkGameStatus() {
   var middleRight = tiles[5].classList[1];
   var bottomLeft = tiles[6].classList[1];
   var bottomMiddle = tiles[7].classList[1];
-  var bottomRight = tiles[8].classList[1];
-  console.log(bottomRight); // check the winner
+  var bottomRight = tiles[8].classList[1]; // check the winner
 
   if (topLeft && topLeft === topMiddle && topLeft === topRight) {
     handleWin(topLeft);
@@ -92,4 +91,37 @@ var checkGameStatus = function checkGameStatus() {
       statusBox.innerHTML = "<span>".concat(o, " is next</span>");
     }
   }
+}; // Event handlers
+
+
+var handleReset = function handleReset() {
+  xIsNext = true;
+  statusBox.innerHTML = "".concat(x, " is next");
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = tiles[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var tile = _step.value;
+      tile.classList.remove("x");
+      tile.classList.remove("o");
+      tile.classList.remove("won");
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  gameIsLive = true;
 };

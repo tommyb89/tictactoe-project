@@ -38,8 +38,6 @@ const checkGameStatus = () => {
   const bottomMiddle = tiles[7].classList[1];
   const bottomRight = tiles[8].classList[1];
 
-  console.log(bottomRight);
-
   // check the winner
 
   if (topLeft && topLeft === topMiddle && topLeft === topRight) {
@@ -115,4 +113,16 @@ const checkGameStatus = () => {
       statusBox.innerHTML = `<span>${o} is next</span>`;
     }
   }
+};
+
+// Event handlers
+const handleReset = () => {
+  xIsNext = true;
+  statusBox.innerHTML = `${x} is next`;
+  for (const tile of tiles) {
+    tile.classList.remove("x");
+    tile.classList.remove("o");
+    tile.classList.remove("won");
+  }
+  gameIsLive = true;
 };
