@@ -26,7 +26,7 @@ body {
   }
 }
 
-.status-action {
+.status {
   display: flex;
   margin-top: 25px;
   font-size: 25px;
@@ -37,7 +37,9 @@ body {
     color: #c5b273;
   }
 }
-
+.reset {
+  cursor: pointer;
+}
 .reset:hover {
   color: #f2ebd3;
 }
@@ -61,7 +63,7 @@ body {
   }
 }
 
-.game- .x,
+.x,
 .o {
   cursor: default;
 }

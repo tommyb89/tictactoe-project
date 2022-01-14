@@ -2,14 +2,19 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   color: #755d5d;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-family: sans-serif;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .container {
@@ -22,19 +27,28 @@ body {
 .title {
   text-align: center;
 }
+
 .title span {
   color: #06b0ffd7;
 }
 
-.status-action {
+.status {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 25px;
   font-size: 25px;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   height: 30px;
 }
-.status-action span {
+
+.status span {
   color: #c5b273;
+}
+
+.reset {
+  cursor: pointer;
 }
 
 .reset:hover {
@@ -43,23 +57,33 @@ body {
 
 .board {
   background: #daddfc;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
   grid-gap: 15px;
   margin-top: 50px;
 }
+
 .board__tile {
   background: #396eb0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
   height: 200px;
   width: 200px;
 }
 
-.game- .x,
+.x,
 .o {
   cursor: default;
 }
@@ -88,31 +112,28 @@ body {
     height: 150px;
     width: 150px;
   }
-
   .x::after {
     font-size: 150px;
   }
-
   .o::after {
     font-size: 175px;
   }
 }
+
 @media only screen and (max-width: 540px) {
   .container {
     margin: 25px;
     padding: 25px;
   }
-
   .board__tile {
     height: 100px;
     width: 100px;
   }
-
   .x::after {
     font-size: 100px;
   }
-
   .o::after {
     font-size: 125px;
   }
 }
+/*# sourceMappingURL=styles.css.map */

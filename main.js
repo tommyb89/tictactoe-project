@@ -27,7 +27,6 @@ const handleWin = (letter) => {
 // Main function to check game status
 const checkGameStatus = () => {
   // Select all board elements to compare them after
-
   const topLeft = tiles[0].classList[1];
   const topMiddle = tiles[1].classList[1];
   const topRight = tiles[2].classList[1];
@@ -39,59 +38,58 @@ const checkGameStatus = () => {
   const bottomRight = tiles[8].classList[1];
 
   // check the winner
-
   if (topLeft && topLeft === topMiddle && topLeft === topRight) {
     handleWin(topLeft);
-    tiles[0].classList.add("won");
-    tiles[1].classList.add("won");
-    tiles[2].classList.add("won");
+    cellDivs[0].classList.add("won");
+    cellDivs[1].classList.add("won");
+    cellDivs[2].classList.add("won");
   } else if (
     middleLeft &&
     middleLeft === middleMiddle &&
     middleLeft === middleRight
   ) {
     handleWin(middleLeft);
-    tiles[3].classList.add("won");
-    tiles[4].classList.add("won");
-    tiles[5].classList.add("won");
+    cellDivs[3].classList.add("won");
+    cellDivs[4].classList.add("won");
+    cellDivs[5].classList.add("won");
   } else if (
     bottomLeft &&
     bottomLeft === bottomMiddle &&
     bottomLeft === bottomRight
   ) {
     handleWin(bottomLeft);
-    tiles[6].classList.add("won");
-    tiles[7].classList.add("won");
-    tiles[8].classList.add("won");
+    cellDivs[6].classList.add("won");
+    cellDivs[7].classList.add("won");
+    cellDivs[8].classList.add("won");
   } else if (topLeft && topLeft === middleLeft && topLeft === bottomLeft) {
     handleWin(topLeft);
-    tiles[0].classList.add("won");
-    tiles[3].classList.add("won");
-    tiles[6].classList.add("won");
+    cellDivs[0].classList.add("won");
+    cellDivs[3].classList.add("won");
+    cellDivs[6].classList.add("won");
   } else if (
     topMiddle &&
     topMiddle === middleMiddle &&
     topMiddle === bottomMiddle
   ) {
     handleWin(topMiddle);
-    tiles[1].classList.add("won");
-    tiles[4].classList.add("won");
-    tiles[7].classList.add("won");
+    cellDivs[1].classList.add("won");
+    cellDivs[4].classList.add("won");
+    cellDivs[7].classList.add("won");
   } else if (topRight && topRight === middleRight && topRight === bottomRight) {
     handleWin(topRight);
-    tiles[2].classList.add("won");
-    tiles[5].classList.add("won");
-    tiles[8].classList.add("won");
+    cellDivs[2].classList.add("won");
+    cellDivs[5].classList.add("won");
+    cellDivs[8].classList.add("won");
   } else if (topLeft && topLeft === middleMiddle && topLeft === bottomRight) {
     handleWin(topLeft);
-    tiles[0].classList.add("won");
-    tiles[4].classList.add("won");
-    tiles[8].classList.add("won");
+    cellDivs[0].classList.add("won");
+    cellDivs[4].classList.add("won");
+    cellDivs[8].classList.add("won");
   } else if (topRight && topRight === middleMiddle && topRight === bottomLeft) {
     handleWin(topRight);
-    tiles[2].classList.add("won");
-    tiles[4].classList.add("won");
-    tiles[6].classList.add("won");
+    cellDivs[2].classList.add("won");
+    cellDivs[4].classList.add("won");
+    cellDivs[6].classList.add("won");
   } else if (
     topLeft &&
     topMiddle &&
@@ -124,5 +122,28 @@ const handleReset = () => {
     tile.classList.remove("o");
     tile.classList.remove("won");
   }
-  gameIsLive = true;
+  isLive = true;
 };
+
+const handleTileClick = () => {
+  const classList = e.target.classList;
+
+  if (!isLive || classList[1] === "x" || classList[1] === "o") {
+    return;
+  }
+
+  if (xIsNext) {
+    classList.add("x");
+    checkGameStatus();
+  } else {
+    classList.add("o");
+    checkGameStatus();
+  }
+};
+
+// Event listeners
+reset.addEventListener("click", handleReset);
+
+for (const tile of tiles) {
+  tile.addEventListener("click", handleTileClick);
+}
